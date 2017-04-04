@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+	<div id="output" class="main-container"></div>
+	<script>
+		var _output = document.getElementById("output");
+
+		var windowtitle = document.getElementById("windowtitle");
+		var insidetitle = document.getElementById("insidetitle");
+
+		function println(str){
+			_output.innerHTML += str + "<br>";
+		}
+
+		os_print = print;
+		function print(str){
+			_output.innerHTML += str;
+		}
+
+		function trace(str){
+			println(str);
+		}
+
+		function clear(){
+			_output.innerHTML = "";
+		}
+
+		function setTitle(title)
+		{
+			windowtitle.textContent = title;
+			insidetitle.textContent = title;
+		}
+
+		function hideTitle()
+		{
+			insidetitle.style.display = 'none';
+		}
+		function unhideTitle()
+		{
+			insidetitle.style.display = 'block';
+		}
+
+		function hideTitlebox()
+		{
+			document.getElementById("titlebox").style.display = 'none';
+		}
+		function unhideTitlebox()
+		{
+			document.getElementById("titlebox").style.display = 'block';
+		}
+
+		log = console.log;
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1);
+				if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+			}
+			return "";
+		}
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+d.toUTCString();
+			document.cookie = cname + "=" + cvalue + "; " + expires + 'path=/';
+		}
+	</script>
+	<script src="../jquery-2.1.4.js"></script>
+	<script src="../file.js"></script>
+	<script src="js/classes.js"></script>
+	<script src="js/ajax.js"></script>
+
+	<script src="js/menus.js"></script>
+	<script src="js/querypages.js"></script>
+
+	<script src="js/code.js"></script>
+	<script src="js/query.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
